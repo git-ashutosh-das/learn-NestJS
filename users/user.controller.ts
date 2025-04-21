@@ -68,7 +68,8 @@ export class UserController{
         // USERS= USERS.filter(value => value.id == id); // Bad practice to reintiate declared array
         USERS.splice( userIndex, 1)
         return {
-            "success": "User successfully deleted"
+            success: "User successfully deleted",
+            data: USERS
         }
     }
 }
