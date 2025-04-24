@@ -1,12 +1,14 @@
 import { Body, Controller, Delete, Get, NotFoundException, Param, Post, Put, Query } from "@nestjs/common";
 import { UserDataDTO } from "dto";
 import { Request, Response } from "express";
+import { UserService } from "./user.service";
 
 let USERS: UserDataDTO[] = [];
 
 @Controller('/users')
 export class UserController{
     
+    constructor (private userService: UserService){}
     @Post('/addUser')
     addUser(@Body() userDTO: UserDataDTO, req: Request, res: Response){
         
